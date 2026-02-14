@@ -28,9 +28,9 @@ init()
 
 var crsr = document.querySelector(".cursor")
 var main = document.querySelector(".main")
-document.addEventListener("mousemove",function(dets){
-    crsr.style.left = dets.x + 20+"px"
-    crsr.style.top = dets.y + 20+"px"
+document.addEventListener("mousemove", function (dets) {
+    crsr.style.left = dets.x + 20 + "px"
+    crsr.style.top = dets.y + 20 + "px"
 })
 
 gsap.from(".page1 h1,.page1 h2", {
@@ -85,21 +85,21 @@ var tl3 = gsap.timeline({
     }
 })
 
-tl3.to(".main",{
-    backgroundColor:"#0F0D0D"
+tl3.to(".main", {
+    backgroundColor: "#0F0D0D"
 })
 
 
 var boxes = document.querySelectorAll(".box")
-boxes.forEach(function(elem){
-    elem.addEventListener("mouseenter",function(){
+boxes.forEach(function (elem) {
+    elem.addEventListener("mouseenter", function () {
         var att = elem.getAttribute("data-image")
         crsr.style.width = "470px"
         crsr.style.height = "370px"
         crsr.style.borderRadius = "0"
         crsr.style.backgroundImage = `url(${att})`
     })
-    elem.addEventListener("mouseleave",function(){
+    elem.addEventListener("mouseleave", function () {
         elem.style.backgroundColor = "transparent"
         crsr.style.width = "20px"
         crsr.style.height = "20px"
@@ -110,13 +110,44 @@ boxes.forEach(function(elem){
 
 var h4 = document.querySelectorAll("#nav h4")
 var purple = document.querySelector("#purple")
-h4.forEach(function(elem){
-    elem.addEventListener("mouseenter",function(){
-        purple.style.display = "block"   
+h4.forEach(function (elem) {
+    elem.addEventListener("mouseenter", function () {
+        purple.style.display = "block"
         purple.style.opacity = "1"
     })
-    elem.addEventListener("mouseleave",function(){
-        purple.style.display = "none"   
+    elem.addEventListener("mouseleave", function () {
+        purple.style.display = "none"
         purple.style.opacity = "0"
     })
+})
+
+var footerTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: "footer",
+        scroller: ".main",
+        start: "top 50%",
+        end: "top 0",
+        scrub: 2
+    }
+})
+
+footerTl.from("#footer-top", {
+    y: 50,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2
+})
+
+footerTl.from("#footer-div h1", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2
+})
+
+footerTl.from("#footer-bottom", {
+    y: 50,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2
 })

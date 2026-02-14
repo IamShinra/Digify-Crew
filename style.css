@@ -269,12 +269,117 @@ html, body {
 
 .box:nth-last-child(1){
     border-bottom: 2px solid #dadada;
-
 }
-
-
-footer{
-    height: 90vh;
+/* Footer Styles */
+footer {
+    margin-top: -100px;
+    height: 80vh;
     width: 100%;
-    background-color: #EDBFFF;
+    background-color: #0F0D0D; 
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 1vw 3vw;
+    position: relative;
+    z-index: 9;
 }
+
+#footer-div {
+    border-radius: 50px;
+    /* background-color: red; */
+    height: 100%; 
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    flex-direction: column;
+    padding-bottom: 2vw ;
+}
+
+#footer-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 3vw;
+}
+
+#footer-top h1 {
+    margin-top: -350px;
+    font-size: 8vw;
+    line-height: 7vw;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #EDBFFF; 
+    text-transform: uppercase;
+}
+
+#footer-circle {
+    margin-top: -300px;
+    height: 10vw;
+    width: 10vw;
+    background-color: #EDBFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #0F0D0D;
+    position: relative;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#footer-circle:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+}
+
+#footer-circle h3 {
+    font-size: 1vw;
+    font-weight: 500;
+    color: #0F0D0D;
+}
+
+#footer-circle svg {
+    margin-bottom: 5px;
+    color: #0F0D0D;
+    scale: 1;
+}
+
+#footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 2vw;
+    border-top: 1px solid #333;
+}
+
+.footer-col {
+    width: 20%;
+}
+
+.footer-col h4 {
+    font-size: 1.2vw;
+    margin-bottom: 1.5vw;
+    font-weight: 500;
+    color: #EDBFFF;
+}
+
+.footer-col p, .footer-col a {
+    font-size: 1vw;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5vw;
+}
+
+.footer-col a:hover {
+    color: #EDBFFF;
+}
+
