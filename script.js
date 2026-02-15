@@ -144,18 +144,28 @@ ScrollTrigger.matchMedia({
             duration: 0.7
         });
 
-        var h4 = document.querySelectorAll("#nav h4");
-        var purple = document.querySelector("#purple");
+        var h4 = document.querySelectorAll("#nav h4")
+        var purple = document.querySelector("#purple")
+        var marqueeH1s = document.querySelectorAll(".marquee h1");
+
         h4.forEach(function (elem) {
             elem.addEventListener("mouseenter", function () {
-                purple.style.display = "block";
-                purple.style.opacity = "1";
-            });
+                // Get the text content of the hovered link
+                let text = elem.textContent;
+                // Repeat it to fill the marquee
+                let marqueeText = (text + " ").repeat(20);
+
+                // Update all marquee h1s
+                marqueeH1s.forEach(h1 => h1.textContent = marqueeText);
+
+                purple.style.display = "block"
+                purple.style.opacity = "1"
+            })
             elem.addEventListener("mouseleave", function () {
-                purple.style.display = "none";
-                purple.style.opacity = "0";
-            });
-        });
+                purple.style.display = "none"
+                purple.style.opacity = "0"
+            })
+        })
 
         var footerTl = gsap.timeline({
             scrollTrigger: {

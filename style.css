@@ -26,7 +26,36 @@ html, body {
     opacity: 0;
     display: none;
     transition: opacity ease 1s;
-    
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.marquee h1 {
+    font-size: 8vw;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px #0F0D0D;
+    text-transform: uppercase;
+    animation: marquee 24s linear infinite;
+    padding-right: 20px; /* Gap between repeated text */
+    flex-shrink: 0; /* Prevent text from wrapping/shrinking */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 .cursor{
     height: 20px;
