@@ -21,6 +21,29 @@ function init() {
 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
     ScrollTrigger.refresh();
+
+    // Click to Scroll Logic
+    const navLinks = document.querySelectorAll("#nav h4");
+
+    // Home -> Page 1
+    navLinks[0].addEventListener("click", () => {
+        locoScroll.scrollTo(document.querySelector(".page1"));
+    });
+
+    // Work -> Page 3
+    navLinks[1].addEventListener("click", () => {
+        locoScroll.scrollTo(document.querySelector(".page3"));
+    });
+
+    // Studio -> Page 4
+    navLinks[2].addEventListener("click", () => {
+        locoScroll.scrollTo(document.querySelector(".page4"));
+    });
+
+    // Contact -> Footer
+    navLinks[3].addEventListener("click", () => {
+        locoScroll.scrollTo(document.querySelector("footer"));
+    });
 }
 
 init();
