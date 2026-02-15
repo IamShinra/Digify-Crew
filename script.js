@@ -199,3 +199,96 @@ ScrollTrigger.matchMedia({
         });
     }
 });
+
+// Navigation Underline Logic
+function navHighlight() {
+    var navLinks = document.querySelectorAll("#nav h4");
+    var currentSectionIndex = 0; // Default to Home
+
+    function setActiveLog(index) {
+        navLinks.forEach((link, i) => {
+            if (i === index) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    }
+
+    // Initialize Home as active
+    setActiveLog(0);
+
+    // Track scroll position to update currentSectionIndex
+
+    // Page 1 & 2 -> Home (Index 0)
+    ScrollTrigger.create({
+        trigger: ".page1",
+        scroller: ".main",
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => { currentSectionIndex = 0; setActiveLog(0); },
+        onEnterBack: () => { currentSectionIndex = 0; setActiveLog(0); }
+    });
+
+    ScrollTrigger.create({
+        trigger: ".page2",
+        scroller: ".main",
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => { currentSectionIndex = 0; setActiveLog(0); },
+        onEnterBack: () => { currentSectionIndex = 0; setActiveLog(0); }
+    });
+
+    // Page 3 -> Work (Index 1)
+    ScrollTrigger.create({
+        trigger: ".page3",
+        scroller: ".main",
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => { currentSectionIndex = 1; setActiveLog(1); },
+        onEnterBack: () => { currentSectionIndex = 1; setActiveLog(1); }
+    });
+
+    // Page 4 & 5 -> Studio (Index 2)
+    ScrollTrigger.create({
+        trigger: ".page4",
+        scroller: ".main",
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => { currentSectionIndex = 2; setActiveLog(2); },
+        onEnterBack: () => { currentSectionIndex = 2; setActiveLog(2); }
+    });
+
+    ScrollTrigger.create({
+        trigger: ".page5",
+        scroller: ".main",
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => { currentSectionIndex = 2; setActiveLog(2); },
+        onEnterBack: () => { currentSectionIndex = 2; setActiveLog(2); }
+    });
+
+    // Footer -> Contact (Index 3)
+    ScrollTrigger.create({
+        trigger: "footer",
+        scroller: ".main",
+        start: "top 80%",
+        end: "bottom bottom",
+        onEnter: () => { currentSectionIndex = 3; setActiveLog(3); },
+        onEnterBack: () => { currentSectionIndex = 3; setActiveLog(3); }
+    });
+
+
+    // Hover Logic
+    navLinks.forEach((link, index) => {
+        link.addEventListener("mouseenter", () => {
+            setActiveLog(index);
+        });
+
+        link.addEventListener("mouseleave", () => {
+            setActiveLog(currentSectionIndex);
+        });
+    });
+}
+
+navHighlight();
