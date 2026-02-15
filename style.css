@@ -675,9 +675,12 @@ footer {
     }
 
     /* Nav adjustments */
+    /* Nav adjustments */
     #nav {
-        padding: 0 15px;
+        padding: 0 5vw;
         height: 60px;
+        top: 0; 
+        margin-top: 20px;
     }
     
     #nav img{
@@ -685,11 +688,23 @@ footer {
     }
 
     #nav-part2 {
-        display: none; /* Hide nav links on mobile for now - simplistic approach */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2vw; /* Reduced gap */
     }
     
+    #nav h4 {
+        font-size: 3vw; /* Responsive font size */
+    }
+
     #nav-part3 {
-        display: none;
+        display: block;
+    }
+    
+    #nav #circle {
+        height: 3vw;
+        width: 3vw;
     }
 }
 
