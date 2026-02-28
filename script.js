@@ -103,7 +103,7 @@ ScrollTrigger.matchMedia({
                 scrub: 3
             }
         });
-        tl2.to(".main", { backgroundColor: "#fff" });
+        tl2.to(".main", { backgroundColor: "#ff0101" });
 
         var tl3 = gsap.timeline({
             scrollTrigger: {
