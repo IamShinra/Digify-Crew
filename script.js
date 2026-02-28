@@ -79,8 +79,8 @@ if (!window.matchMedia("(hover: none)").matches) {
 
 // GSAP Animations with matchMedia
 ScrollTrigger.matchMedia({
-    // Desktop and Tablet (Large screens)
-    "(min-width: 800px)": function () {
+    // Desktop (Large screens)
+    "(min-width: 1025px)": function () {
         var tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".page1 h1",
@@ -115,46 +115,52 @@ ScrollTrigger.matchMedia({
             }
         });
         tl3.to(".main", { backgroundColor: "#0F0D0D" });
+
+        const footerTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".site-footer",
+                scroller: ".main",
+                start: "top 80%",
+                end: "bottom bottom",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        footerTl.from(".footer-top > *", {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        })
+            .from(".footer-middle > *", {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: "power2.out"
+            }, "-=0.5")
+            .from(".footer-bottom", {
+                opacity: 0,
+                duration: 1
+            }, "-=0.5");
     },
 
-    // Mobile (Small screens)
-    "(max-width: 799px)": function () {
+    // Tablet & Mobile (Small/Medium screens)
+    "(max-width: 1024px)": function () {
         var tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".page1 h1",
                 scroller: ".main",
-                start: "top 27%",
+                start: "top 20%",
                 end: "top 0",
                 scrub: 3
             }
         });
-        // Reduced movement for mobile to prevent overflow/jaggedness
-        tl.to(".page1 h1", { x: -30 }, "anim");
-        tl.to(".page1 h2", { x: 30 }, "anim");
-        tl.to(".page1 video", { width: "90%" }, "anim"); // Keep video expansion
-
-        // Adjust background color trigger points if needed, currently keeping same relative logic
-        var tl2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".page1 h1",
-                scroller: ".main",
-                start: "top -115%",
-                end: "top -120%",
-                scrub: 3
-            }
-        });
-        tl2.to(".main", { backgroundColor: "#fff" });
-
-        var tl3 = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".page1 h1",
-                scroller: ".main",
-                start: "top -280%",
-                end: "top -300%",
-                scrub: 3
-            }
-        });
-        tl3.to(".main", { backgroundColor: "#0F0D0D" });
+        // Reduced movement for screens to prevent overflow
+        tl.to(".page1 h1", { x: -20 }, "anim");
+        tl.to(".page1 h2", { x: 20 }, "anim");
+        tl.to(".page1 video", { width: "95%" }, "anim");
     },
 
     // All sizes
@@ -190,36 +196,7 @@ ScrollTrigger.matchMedia({
             })
         })
 
-        var footerTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "footer",
-                scroller: ".main",
-                start: "top 50%",
-                end: "top 0",
-                scrub: 2
-            }
-        });
 
-        footerTl.from("#footer-top", {
-            y: 50,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.2
-        });
-
-        footerTl.from("#footer-div h1", {
-            y: 100,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2
-        });
-
-        footerTl.from("#footer-bottom", {
-            y: 50,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.2
-        });
     }
 });
 
