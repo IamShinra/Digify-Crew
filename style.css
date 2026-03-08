@@ -95,8 +95,10 @@ html, body {
     mix-blend-mode: difference;
     z-index:102;
 }
-#nav img{
-    height: 65px;
+#nav img {
+    height: 125px; /* Slightly smaller for a more refined look */
+    width: auto;
+    object-fit: contain;
 }
 #nav-part2{
     display: flex;
